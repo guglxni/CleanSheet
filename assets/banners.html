@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Clean sheet banners</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,560&family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600&display=swap"
+    />
+    <style>
+      :root {
+        --desk: #101114;
+        --housing: #1a1c21;
+        --hairline: rgba(244, 237, 226, 0.1);
+        --text: #f4ede2;
+        --muted: #b7b1a6;
+        --brass: #e6b15a;
+        --brass-hot: #f0c272;
+        --paper: #f3efe4;
+        --ink: #1c1b19;
+        --rule: #e2d9c8;
+        --dup: #f8e7c4;
+        --miss: #f8d2c8;
+        --miss-ink: #8c2f1b;
+        --bar: #e0a090;
+        --paper-muted: #4a453c;
+        --ui: "Outfit", "Avenir Next", "Segoe UI", sans-serif;
+        --display: "Fraunces", "Iowan Old Style", Palatino, serif;
+        --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+      }
+
+      * { box-sizing: border-box; }
+      html, body { margin: 0; background: var(--desk); }
+      body { font-family: var(--ui); color: var(--text); }
+      body[data-frame="hero"] .flow,
+      body[data-frame="flow"] .hero { display: none; }
+
+      .hero, .flow {
+        position: relative;
+        width: 1280px;
+        overflow: hidden;
+        background: var(--desk);
+      }
+      .hero { height: 640px; }
+      .flow { height: 400px; }
+
+      .lamp {
+        position: absolute;
+        top: -80px;
+        left: 40px;
+        width: 520px;
+        height: 320px;
+        background: radial-gradient(closest-side, rgba(230, 177, 90, 0.22), rgba(230, 177, 90, 0) 72%);
+        pointer-events: none;
+      }
+      .lamp-right {
+        left: auto;
+        right: -40px;
+        top: -120px;
+        width: 420px;
+        height: 280px;
+        background: radial-gradient(closest-side, rgba(230, 177, 90, 0.1), rgba(230, 177, 90, 0) 70%);
+      }
+
+      .hero-grid {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 560px;
+        gap: 48px;
+        height: 100%;
+        padding: 64px 72px 56px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+
+      .wordmark {
+        margin: 0;
+        font-size: 92px;
+        font-weight: 600;
+        letter-spacing: -0.045em;
+        line-height: 0.9;
+      }
+      .wordmark em {
+        font-family: var(--display);
+        font-style: italic;
+        font-weight: 500;
+        letter-spacing: -0.03em;
+      }
+
+      .lede {
+        max-width: 34rem;
+        margin: 22px 0 0;
+        color: var(--text);
+        font-size: 22px;
+        font-weight: 400;
+        line-height: 1.45;
+      }
+
+      .pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 32px;
+      }
+      .pill {
+        padding: 8px 14px;
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 13px;
+        border: 1px solid var(--hairline);
+        border-radius: 999px;
+      }
+
+      .paper {
+        position: relative;
+        padding: 22px 22px 18px;
+        color: var(--ink);
+        background: var(--paper);
+        border: 1px solid var(--rule);
+        border-radius: 18px 18px 12px 12px;
+        box-shadow:
+          0 18px 50px rgba(0, 0, 0, 0.38),
+          inset 0 1px 0 rgba(255, 252, 246, 0.65);
+        transform: rotate(0.4deg);
+      }
+      .dogear {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 36px;
+        height: 36px;
+        background: linear-gradient(225deg, #d5cbbd 50%, transparent 50%);
+        border-bottom-left-radius: 6px;
+      }
+      .paper-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        padding-right: 28px;
+        margin-bottom: 14px;
+      }
+      .paper-name {
+        margin: 0;
+        font-family: var(--mono);
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .paper-meta {
+        margin: 0;
+        color: var(--paper-muted);
+        font-size: 13px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
+      }
+      th, td {
+        padding: 7px 8px;
+        text-align: left;
+        border-bottom: 1px solid var(--rule);
+        white-space: nowrap;
+      }
+      th {
+        color: var(--paper-muted);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      td.num, th.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+      tr.dup td { background: var(--dup); }
+      td.miss {
+        background: var(--miss);
+        color: var(--miss-ink);
+        font-family: var(--mono);
+        font-size: 12px;
+      }
+      .legend {
+        display: flex;
+        gap: 16px;
+        margin: 14px 0 0;
+        color: var(--paper-muted);
+        font-size: 12px;
+      }
+      .swatch {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin-right: 6px;
+        border-radius: 2px;
+        vertical-align: -1px;
+      }
+      .swatch.dup { background: #e6b15a; }
+      .swatch.miss { background: #e0a090; }
+
+      .flow {
+        padding: 48px 64px 44px;
+      }
+      .flow-kicker {
+        margin: 0 0 8px;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+      }
+      .flow h2 {
+        margin: 0 0 28px;
+        font-size: 40px;
+        font-weight: 600;
+        letter-spacing: -0.04em;
+        line-height: 1;
+      }
+      .flow h2 em {
+        font-family: var(--display);
+        font-style: italic;
+        font-weight: 500;
+      }
+      .steps {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 14px;
+      }
+      .step {
+        min-height: 196px;
+        padding: 18px 18px 20px;
+        background: var(--housing);
+        border: 1px solid var(--hairline);
+        border-radius: 16px;
+      }
+      .step-no {
+        margin: 0;
+        color: var(--brass);
+        font-family: var(--display);
+        font-style: italic;
+        font-size: 28px;
+        font-weight: 500;
+        line-height: 1;
+      }
+      .step h3 {
+        margin: 12px 0 8px;
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+      }
+      .step p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.45;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero" id="hero">
+      <div class="lamp"></div>
+      <div class="lamp lamp-right"></div>
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">CSV desk</p>
+          <h1 class="wordmark">Clean <em>sheet</em></h1>
+          <p class="lede">
+            Upload a spreadsheet, see duplicate rows and blank cells, then download a version with those rows removed.
+          </p>
+          <div class="pills">
+            <span class="pill">stays in the browser</span>
+            <span class="pill">first copy kept</span>
+            <span class="pill">name-clean.csv</span>
+          </div>
+        </div>
+        <div class="paper">
+          <div class="dogear"></div>
+          <div class="paper-head">
+            <p class="paper-name">harbor-orders.csv</p>
+            <p class="paper-meta">18 rows · 6 columns</p>
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th class="num">Row</th>
+                <th>Order</th>
+                <th>Customer</th>
+                <th>City</th>
+                <th>Item</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="num">1</td>
+                <td>HO-1042</td>
+                <td>Mara Ellison</td>
+                <td>Portland</td>
+                <td>Notebook</td>
+              </tr>
+              <tr class="dup">
+                <td class="num">11</td>
+                <td>HO-1042</td>
+                <td>Mara Ellison</td>
+                <td>Portland</td>
+                <td>Notebook</td>
+              </tr>
+              <tr>
+                <td class="num">7</td>
+                <td>HO-1048</td>
+                <td>Chris Adeyemi</td>
+                <td class="miss">blank</td>
+                <td>Mug</td>
+              </tr>
+              <tr>
+                <td class="num">5</td>
+                <td>HO-1046</td>
+                <td>Okafor “Nia” Blake</td>
+                <td>Chicago</td>
+                <td>Scarf</td>
+              </tr>
+              <tr class="dup">
+                <td class="num">17</td>
+                <td>HO-1046</td>
+                <td>Okafor “Nia” Blake</td>
+                <td>Chicago</td>
+                <td>Scarf</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="legend">
+            <span><i class="swatch dup"></i>Duplicate copy</span>
+            <span><i class="swatch miss"></i>Blank cell</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="flow" id="flow">
+      <div class="lamp"></div>
+      <p class="flow-kicker">On the desk</p>
+      <h2>From a messy file to a <em>clean sheet</em></h2>
+      <div class="steps">
+        <article class="step">
+          <p class="step-no">01</p>
+          <h3>Upload</h3>
+          <p>Drop a CSV, choose a file, or load the Harbor &amp; Co. sample. Quotes, escaped quotes, and a leading BOM are read as cells, not as broken rows.</p>
+        </article>
+        <article class="step">
+          <p class="step-no">02</p>
+          <h3>Read the marks</h3>
+          <p>Repeated rows show in brass. Empty cells show in clay. The first copy of a repeated row stays unmarked. It is the one that will be kept.</p>
+        </article>
+        <article class="step">
+          <p class="step-no">03</p>
+          <h3>Clean and download</h3>
+          <p>Drop incomplete rows, drop later copies, or do both. Restore the original parse, or save the working sheet as a sibling CSV.</p>
+        </article>
+      </div>
+    </section>
+    <script>
+      const frame = new URLSearchParams(location.search).get("frame") || "hero";
+      document.body.dataset.frame = frame;
+      document.fonts.ready.then(() => {
+        document.documentElement.dataset.ready = "1";
+      });
+    </script>
+  </body>
+</html>
