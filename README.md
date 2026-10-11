@@ -4,6 +4,23 @@
 
 A desk for a messy CSV. Drop in a file, see which rows repeat and which cells are blank, then download a sheet with those rows removed. Parsing, the preview, and the download all run in the browser.
 
+## Wispr Flow shortlisting task
+
+> [!IMPORTANT]
+> **Wispr Flow Shortlisting Task.** Build anything you want — a web app, tool, game, utility, automation, or experiment — but build it entirely using your voice with Wispr Flow, not by manually writing the code yourself. Show how effectively you can turn an idea into a working project through voice-driven development alone.
+>
+> [Get free Wispr Flow credits](https://ref.wisprflow.ai/hhg)
+
+Clean sheet is the project for that brief: a working web app, spoken into place with [Wispr Flow](https://ref.wisprflow.ai/hhg). The idea was a local desk that marks duplicate rows and blank cells, then hands back a cleaned CSV. The repo is that desk, running.
+
+| The brief | How this repo answers it |
+| --- | --- |
+| Build the entire project using your voice — no manually writing the code yourself | The app, the parser, the preview, and this page were driven by voice in Wispr Flow |
+| Any project type: web app, tool, game, utility, automation, or experiment | A web app: upload, mark, clean, and download a CSV in the browser |
+| Screen recording must show the actual build process, not just the final result | Record the voice session as the desk is built, from the empty folder through a working clean |
+| Working, functional project — it doesn't need to be production-ready | `npm run dev` opens the desk. Load the sample, clean it, and download `harbor-orders-clean.csv` |
+| Any language, framework, or tech stack, as long as it's built with Wispr Flow | React 19, TypeScript, and Vite. The CSV engine has no library behind it |
+
 ![Three steps on the desk: upload a CSV, read brass and clay marks, then clean and download.](assets/flow.png)
 
 ## On the desk
