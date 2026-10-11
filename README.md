@@ -4,6 +4,14 @@
 
 A desk for a messy CSV. Drop in a file, see which rows repeat and which cells are blank, then download a sheet with those rows removed. Parsing, the preview, and the download all run in the browser.
 
+## Clean sheet — a CSV cleaner built entirely by voice with @wisprflow
+
+[![Clean sheet — a CSV cleaner built entirely by voice with @wisprflow](docs/youtube/z7I18DJaR_E.jpg)](https://youtu.be/z7I18DJaR_E)
+
+![QR code for the video](docs/youtube/z7I18DJaR_E-qr.svg)
+
+https://youtu.be/z7I18DJaR_E
+
 ## Wispr Flow shortlisting task
 
 > [!IMPORTANT]
